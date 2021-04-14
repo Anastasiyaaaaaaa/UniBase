@@ -1,0 +1,20 @@
+Вывод:	Bad: undefined(4)
+
+Варианты модификации кода:
+const arr = [10,12,15,21];
+
+1.
+for(let i = 0; i < arr.length; i++) {
+    setTimeout(function() { 
+        console.log(arr[i] > 13? `Good: ${arr[i]}` : `Bad: ${arr[i]}`)
+    }, 3000)
+}
+
+2.
+arr.forEach(function (item, i) {
+    setTimeout(function () {
+        console.log(arr[i] > 13? `Good: ${arr[i]}` : `Bad: ${arr[i]}`)
+    }, 3000)
+})
+
+ 

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice-1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="popup" id="popup">
+            <a href="#" class="popup__area"></a>
+            <div class="popup__body">
+                <div class="popup__content">
+                    <div class="text">
+                        Стать партнёром проекта</div>
+                    <form>
+                        <div class="form__content">
+
+                            <div class="form__column">
+
+                                <div class="form__row">
+                                    <div class="form__field">
+                                        <label>Название организации</label>
+                                        <input type="text" pattern="^[a-zA-Z]+$" placeholder="АВЦ" required />
+                                    </div>
+
+                                    <div class="form__field">
+                                        <label>Телефон</label>
+                                        <input type="tel" pattern="(\+?\d[- .]*){7,13}" placeholder="+7 933 848-34-33" required />
+                                    </div>
+
+                                    <div class="form__field">
+                                        <label>E-mail</label>
+                                        <input type="email" placeholder="avc@gmail.com" required />
+                                    </div>
+                                </div>
+
+                                <div class="form__file">
+                                    <label>Логотип (jpeg, png)</label>
+
+
+
+                                    <div class="form__file__img">
+
+                                        <div class="form__img-cansel">
+                                            <img class="form__img-cansel__icon" src="./img/cansel.png" alt="">
+                                        </div>
+                                        <input class="form__file__img__input" type="file" accept="image/x-png,image/jpeg" required onclick="defaultBtnActive()" />
+                                        <img class="form__file__img__upload" src="" alt="">
+
+                                        <div class="form__file__img__download">
+                                            <img alt="" src="./img/download.png">
+                                            <p>Выберите файл </p>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form__row">
+                                <div class="form__field">
+                                    <label class="select-label">Направление</label>
+                                    <select required>
+                                        <option>Экология</option>
+                                        <option>Маркетинг</option>
+                                        <option>Психология</option>
+                                        <option>Другое</option>
+                                    </select>
+                                </div>
+
+                                <div class="form__field">
+                                    <div class="input_not-required">
+                                        <input type="name" placeholder="yoursite.ru" />
+                                        <img src="./img/website.png">
+                                    </div>
+                                </div>
+
+                                <div class="form__field">
+                                    <div class="input_not-required">
+
+                                        <input type="name" placeholder="vk.com" />
+                                        <img src="./img/VK.png">
+                                    </div>
+                                </div>
+
+                                <div class="form__field">
+                                    <div class="input_not-required">
+
+                                        <input type="name" placeholder="ok.ru" />
+                                        <img src="./img/OK.png">
+                                    </div>
+                                </div>
+
+                                <div class="form__field">
+                                    <div class="input_not-required">
+
+                                        <input type="name" placeholder="facebook.com" />
+                                        <img src="./img/facebook.png">
+                                    </div>
+                                </div>
+
+                                <div class="form__field">
+                                    <div class="input_not-required">
+
+                                        <input type="name" placeholder="instagram.com" />
+                                        <img src="./img/IG.png">
+                                    </div>
+                                </div>
+
+                                <div class="form__field">
+                                    <div class="input_not-required">
+
+                                        <input type="name" placeholder="youtube.com" />
+                                        <img src="./img/youtube.png">
+                                    </div>
+                                </div>
+
+                                <div class="form__field">
+                                    <div class="input_not-required">
+                                        <span>Руководитель</span>
+                                        <input type="text" placeholder="Александров Иван Васильевич" />
+                                    </div>
+
+                                </div>
+
+                                <input type="submit" value="Стать партнёром проекта">
+                            </div>
+                    </form>
+                    <a href="#" class="popup__close">Отменить</a>
+                    </div>
+                </div>
+
+            </div>
+           
+        </div>
+ <a href="#popup" class="popup-link">Написать</a>
+        <script>
+            /*download img*/
+            const defaultBtn = document.querySelector(".form__file__img__input");
+            const img = document.querySelector(".form__file__img__upload");
+            const wrapper = document.querySelector(".form__file");
+
+            const cancelBtn = document.querySelector(".form__img-cansel__icon");
+
+            function defaultBtnActive() {
+                defaultBtn.addEventListener("change", function() {
+                    const file = this.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+
+                        reader.onload = function() {
+                            const result = reader.result;
+                            img.src = result;
+                            wrapper.classList.add("active");
+                        }
+                        cancelBtn.addEventListener("click", function() {
+                            img.src = "";
+                            wrapper.classList.remove("active");
+                        })
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+        </script>
+
+</body>
+
+</html>
