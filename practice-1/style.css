@@ -18,6 +18,11 @@ body {
     height: 100%;
 }
 
+button,
+input[type="submit"] {
+    -webkit-appearance: none;
+}
+
 .wrapper {
     height: 100%;
 }
@@ -84,8 +89,6 @@ body {
     text-decoration: none;
     color: #0848C0;
 }
-
- 
 
 
 /*FORM*/
@@ -168,9 +171,11 @@ body {
     margin-right: 3%;
 }
 
-.form__field input::placeholder {
+.form__field input::placeholder,
+.form__field input::-webkit-input-placeholder {
     position: absolute;
     top: 0;
+    line-height: normal;
 }
 
 .input_not-required {
